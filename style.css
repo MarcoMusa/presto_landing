@@ -117,3 +117,7 @@ h3,
 .carousel-indicators {
   justify-content: flex-end !important;
 }
+
+#navbar {
+  transition: 0.4s;
+}
