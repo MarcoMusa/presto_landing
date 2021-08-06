@@ -121,3 +121,7 @@ h3,
 #navbar {
   transition: 0.4s;
 }
+
+.rotate-45 {
+  transform: rotate(90deg);
+}
