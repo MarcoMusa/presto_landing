@@ -141,5 +141,5 @@ h3,
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  border-bottom: 4px solid var(--dark-color);
+  border-bottom: 8px solid var(--dark-color);
 }
