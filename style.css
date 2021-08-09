@@ -142,4 +142,15 @@ h3,
   display: flex;
   flex-direction: column;
   border-bottom: 8px solid var(--dark-color);
+  position: relative;
+}
+
+.card-product-link {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ddd;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 }
