@@ -125,3 +125,10 @@ h3,
 .rotate-45 {
   transform: rotate(90deg);
 }
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: var(--accent-color) !important;
+  background-color: transparent !important;
+  text-shadow: 5px 5px 11px rgba(0, 0, 0, 1);
+}
