@@ -133,3 +133,13 @@ h3,
   background-color: transparent !important;
   text-shadow: 5px 5px 11px rgba(0, 0, 0, 1);
 }
+
+.card-product {
+  width: 300px;
+  height: 160px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 4px solid var(--dark-color);
+}
