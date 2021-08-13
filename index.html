@@ -325,50 +325,7 @@
             class="nav nav-pills nav-justified mb-3"
             id="pills-tab"
             role="tablist"
-          >
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link active"
-                id="pills-home-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-home"
-                type="button"
-                role="tab"
-                aria-controls="pills-home"
-                aria-selected="true"
-              >
-                Home
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="pills-profile-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-profile"
-                type="button"
-                role="tab"
-                aria-controls="pills-profile"
-                aria-selected="false"
-              >
-                Profile
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="pills-contact-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-contact"
-                type="button"
-                role="tab"
-                aria-controls="pills-contact"
-                aria-selected="false"
-              >
-                Contact
-              </button>
-            </li>
-          </ul>
+          ></ul>
           <div class="tab-content" id="pills-tabContent">
             <div
               class="tab-pane fade show active"
@@ -424,7 +381,9 @@
             <p class="small">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
-            <div class="card-product-link"></div>
+            <a class="card-product-link" href="#">
+              <i class="fas fa-chevron-right shadow"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -466,6 +425,50 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      fetch("./data.json")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+
+          let pillsTab = document.querySelector("#pills-tab");
+          let pillsTabContent = document.querySelector("#pills-tabContent");
+
+          let categories = data.map((el) => el.category_name);
+
+          let = frequencyCategories = categories.reduce((t, n) => {
+            t[n] ? t[n]++ : (t[n] = 1);
+            return t;
+          }, {});
+
+          let topCategories = Object.entries(frequencyCategories)
+            .sort((a, b) => (b[1] = a[1]))
+            .slice(0, 4)
+            .map((el) => el[0]);
+
+          console.log(topCategories);
+
+          topCategories.forEach((category) => {
+            let li = document.createElement("li");
+            li.classList.add("nav-item");
+            li.innerHTML = `
+            <button
+                class="nav-link active"
+                id="pills-${category}-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-${category}"
+              >
+                ${category}
+              </button>
+            `;
+
+            pillsTab.appendChild(li);
+          });
+
+          console.log(pillsTab, pillsTabContent);
+        });
+    </script>
 
     <script src="./main.js"></script>
 

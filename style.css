@@ -143,14 +143,25 @@ h3,
   flex-direction: column;
   border-bottom: 8px solid var(--dark-color);
   position: relative;
+  overflow: hidden;
 }
 
 .card-product-link {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #ddd;
+  background-color: var(--light-color);
   position: absolute;
-  bottom: 0px;
-  right: 0px;
+  bottom: -60px;
+  right: 10px;
+  transition: 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--accent-color) !important;
+}
+
+.card-product:hover .card-product-link {
+  bottom: 10px;
 }
