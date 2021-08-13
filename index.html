@@ -386,58 +386,6 @@
       </div>
     </footer>
 
-    <script>
-      fetch("./data.json")
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-
-          let pillsTab = document.querySelector("#pills-tab");
-          let pillsTabContent = document.querySelector("#pills-tabContent");
-
-          let categories = data.map((el) => el.category_name);
-
-          let = frequencyCategories = categories.reduce((t, n) => {
-            t[n] ? t[n]++ : (t[n] = 1);
-            return t;
-          }, {});
-
-          let topCategories = Object.entries(frequencyCategories)
-            .sort((a, b) => (b[1] = a[1]))
-            .slice(0, 4)
-            .map((el) => el[0]);
-
-          console.log(topCategories);
-
-          topCategories.forEach((category, indice) => {
-            let li = document.createElement("li");
-            li.classList.add("nav-item");
-            li.innerHTML = `
-            <button
-                class="nav-link ${indice === 0 ? "active" : ""}"
-                id="pills-${category}-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-${category}"
-              >
-                ${category}
-              </button>
-            `;
-            pillsTab.appendChild(li);
-
-            let div = document.createElement("div");
-            div.classList.add("tab-pane", "fade");
-            if (indice === 0) {
-              div.classList.add("show", "active");
-            }
-            div.setAttribute("id", `pills-${category}`);
-            div.textContent = `qui ci sono i prodotti della categoria ${category}`;
-            pillsTabContent.appendChild(div);
-          });
-
-          console.log(pillsTab, pillsTabContent);
-        });
-    </script>
-
     <script src="./main.js"></script>
 
     <script
