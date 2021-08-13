@@ -128,7 +128,7 @@ h3,
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: var(--accent-color) !important;
+  color: var(--dark-color) !important;
   font-weight: bold;
   background-color: transparent !important;
   text-shadow: 5px 5px 11px rgba(0, 0, 0, 1);

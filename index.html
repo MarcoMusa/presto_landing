@@ -326,47 +326,7 @@
             id="pills-tab"
             role="tablist"
           ></ul>
-          <div class="tab-content" id="pills-tabContent">
-            <div
-              class="tab-pane fade show active"
-              id="pills-home"
-              role="tabpanel"
-              aria-labelledby="pills-home-tab"
-            >
-              <p class="text-secondary text-shadow">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Sapiente iure molestiae sed nam. Nobis sit dignissimos
-                repellendus eum voluptatibus quod? Voluptate veniam voluptatem
-                illo totam dignissimos nulla qui commodi ad!
-              </p>
-            </div>
-            <div
-              class="tab-pane fade"
-              id="pills-profile"
-              role="tabpanel"
-              aria-labelledby="pills-profile-tab"
-            >
-              <p class="text-secondary text-shadow">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-                deleniti dolorem quaerat repudiandae dolore nam, atque laborum
-                reprehenderit veritatis perferendis quidem similique impedit
-                fugit suscipit ut rerum dolores. Minima, quisquam.
-              </p>
-            </div>
-            <div
-              class="tab-pane fade"
-              id="pills-contact"
-              role="tabpanel"
-              aria-labelledby="pills-contact-tab"
-            >
-              <p class="text-secondary text-shadow">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia
-                nihil enim ullam ea aspernatur quis rem veniam! Corrupti ad
-                aperiam nemo. Earum magnam quibusdam nesciunt, molestias laborum
-                unde est ullam?
-              </p>
-            </div>
-          </div>
+          <div class="tab-content" id="pills-tabContent"></div>
         </div>
       </div>
     </div>
@@ -449,12 +409,12 @@
 
           console.log(topCategories);
 
-          topCategories.forEach((category) => {
+          topCategories.forEach((category, indice) => {
             let li = document.createElement("li");
             li.classList.add("nav-item");
             li.innerHTML = `
             <button
-                class="nav-link active"
+                class="nav-link ${indice === 0 ? "active" : ""}"
                 id="pills-${category}-tab"
                 data-bs-toggle="pill"
                 data-bs-target="#pills-${category}"
@@ -462,8 +422,16 @@
                 ${category}
               </button>
             `;
-
             pillsTab.appendChild(li);
+
+            let div = document.createElement("div");
+            div.classList.add("tab-pane", "fade");
+            if (indice === 0) {
+              div.classList.add("show", "active");
+            }
+            div.setAttribute("id", `pills-${category}`);
+            div.textContent = `qui ci sono i prodotti della categoria ${category}`;
+            pillsTabContent.appendChild(div);
           });
 
           console.log(pillsTab, pillsTabContent);
